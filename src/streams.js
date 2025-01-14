@@ -7,9 +7,9 @@ const inputFilePath = join(__dirname, '..', 'data', 'lorem-input.txt');
 const outputFilePath = join(__dirname, '..', 'data', 'lorem-output.txt');
 
 // { highWaterMark: 1024 } read stream chunk size 1kb
-// default chunk size is 665536 bytes
+// default chunk size is 64 kb
 const fileInputStream = createReadStream(inputFilePath, {
-  highWaterMark: 1024,
+  highWaterMark: 1024, // 1 kb
 });
 
 const fileOutputStream = createWriteStream(outputFilePath);
