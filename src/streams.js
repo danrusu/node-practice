@@ -3,10 +3,14 @@ const zlib = require('node:zlib');
 const { join } = require('node:path');
 const { createReadStream, createWriteStream } = require('node:fs');
 
+function getDataFilePath(fileName) {
+  return join(__dirname, '..', 'data', fileName);
+}
+
 // input file has 3kb
-const inputFilePath = join(__dirname, '..', 'data', 'lorem-input.txt');
-const outputFilePath = join(__dirname, '..', 'data', 'lorem-output.txt');
-const gzipFilePath = join(__dirname, '..', 'data', 'lorem-output.gz');
+const inputFilePath = getDataFilePath('lorem-input.txt');
+const outputFilePath = getDataFilePath('lorem-output.txt');
+const gzipFilePath = getDataFilePath('lorem-output.gz');
 
 // { highWaterMark: 1024 } read stream chunk size 1kb
 // default chunk size is 64 kb
